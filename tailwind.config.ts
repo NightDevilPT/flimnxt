@@ -10,17 +10,13 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
-			colors: {
-				background: "var(--background)",
-				foreground: "var(--foreground)",
-			},
+			colors: {},
 		},
-    container:{
-      center:true,
-    },
-		darkMode: "class",
-		plugins: [nextui()],
+		container: {
+			center: true,
+		},
 	},
-	plugins: [],
+	darkMode: "class",
+	plugins: [nextui()],
 };
 export default config;

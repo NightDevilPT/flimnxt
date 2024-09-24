@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="dark">
-			<body className={``}>
+			<body className={`flex flex-col h-screen`}>
 				<CombinedProvider>{children}</CombinedProvider>
 			</body>
 		</html>

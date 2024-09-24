@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CommonLayout = () => {
+const Home = () => {
   return (
 	<div>
 		
@@ -8,4 +8,4 @@ const CommonLayout = () => {
   )
 }
 
-export default CommonLayout
+export default Home
