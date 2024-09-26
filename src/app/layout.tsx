@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="dark">
-			<body className={`flex flex-col h-screen`}>
+			<body className={`flex flex-col h-screen transition-all duration-300`}>
 				<CombinedProvider>{children}</CombinedProvider>
 			</body>
 		</html>

@@ -14,10 +14,11 @@ import { Icons } from "@/interfaces/icons.enum";
 
 const VerticalSidebar = () => {
 	const [isSmallScreen, setIsSmallScreen] = useState(false);
-
+	const [isMediumScreen, setIsMediumScreen] = useState(false);
 	useEffect(() => {
 		const handleResize = () => {
-			setIsSmallScreen(window.innerWidth < 1000);
+			setIsSmallScreen(window.innerWidth < 768);
+			setIsMediumScreen(window.innerWidth < 1028);
 		};
 		handleResize();
 		window.addEventListener("resize", handleResize);
@@ -28,10 +29,10 @@ const VerticalSidebar = () => {
 		"w-full flex justify-start items-center h-auto py-2 gap-3 w-auto px-5 w-auto rounded-md bg-transparent hover:bg-secondary text-foreground/80 hover:text-foreground transition-all duration-300 max-lg:px-2 max-lg:justify-center";
 
 	const wrapWithTooltip = (content: string, button: React.ReactNode) => {
-		return isSmallScreen ? (
+		return isMediumScreen ? (
 			<Tooltip
 				content={content}
-				placement="top"
+				placement={isSmallScreen ? "top" : "right"}
 				color="secondary"
 				size="md"
 			>
@@ -43,9 +44,9 @@ const VerticalSidebar = () => {
 	};
 
 	return (
-		<div className="flex flex-col justify-between w-48 max-lg:w-full border-r-1 max-lg:border-t-1 border-default-100 py-5 max-lg:absolute max-lg:bottom-0 max-lg:flex-row max-lg:left-0 max-lg:z-50">
+		<div className="flex flex-col justify-between w-48 max-md:w-full border-r-1 max-lg:border-t-1 border-default-100 py-5 max-md:absolute max-lg:w-20 max-md:bottom-0 max-md:flex-row max-md:left-0 max-md:z-50">
 			<VerticalLogo />
-			<div className="w-full grid grid-cols-1 gap-2 px-4 max-lg:px-2 max-lg:grid-cols-5">
+			<div className="w-full grid grid-cols-1 gap-2 px-4 max-md:px-2 max-md:grid-cols-5">
 				{wrapWithTooltip(
 					"Home",
 					<Button className={commonClasses} size="md" isIconOnly>
@@ -73,7 +74,7 @@ const VerticalSidebar = () => {
 						</span>
 					</Button>
 				)}
-				<Dropdown placement="right">
+				<Dropdown placement={isSmallScreen ? "top" : "right"}>
 					<DropdownTrigger>
 						<Button className={commonClasses} size="md" isIconOnly>
 							{IconComponent({
@@ -96,7 +97,7 @@ const VerticalSidebar = () => {
 				</Dropdown>
 				{wrapWithTooltip(
 					"Settings",
-					<Button className={`${commonClasses} lg:hidden`} size="md" isIconOnly>
+					<Button className={`${commonClasses} md:hidden`} size="md" isIconOnly>
 						{IconComponent({ name: Icons.SETTINGFILL, size: 24 })}
 						<span className="hidden ml-2 lg:block !text-md">
 							Settings
@@ -104,8 +105,8 @@ const VerticalSidebar = () => {
 					</Button>
 				)}
 			</div>
-			<div className="w-full px-4 ma grid grid-cols-1 gap-2 max-lg:hidden">
-				<Divider orientation="horizontal" className="w-full max-lg:hidden" />
+			<div className="w-full px-4 ma grid grid-cols-1 gap-2 max-md:hidden">
+				<Divider orientation="horizontal" className="w-full max-md:hidden" />
 				{wrapWithTooltip(
 					"Settings",
 					<Button className={commonClasses} size="md" isIconOnly>
