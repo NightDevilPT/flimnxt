@@ -4,10 +4,15 @@ export interface Language {
 	name: string;
 }
 
+export interface ImageConfiguration {
+	images: ImageConfiguration
+}
+
 export type LanguagesApiResponse = Language[];
 
 export interface ConfigurationApiResponse {
 	languages: {
 		[key: string]: Language;
 	};
+	images: ImageConfiguration
 }
