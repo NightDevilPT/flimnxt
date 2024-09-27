@@ -6,12 +6,14 @@ import HorizontalFooter from '../horizontal/horizontalFooter'
 import { useAppDispatch } from '@/redux/store';
 import { fetchGenres } from '@/redux/genres/genres.thunk';
 import { fetchConfiguration } from '@/redux/configuration/configuration.thunk';
+import { fetchUpcomingMovies } from '@/redux/upcoming/upcoming.thunk';
 
 const VerticalLayout = ({children}: {children: React.ReactNode}) => {
 	const dispatch = useAppDispatch();
 	useEffect(() => {
 		dispatch(fetchGenres());
 		dispatch(fetchConfiguration());
+		dispatch(fetchUpcomingMovies());
 	}, [dispatch]);
   return (
 	<div className='flex min-h-screen w-full bg-background'>

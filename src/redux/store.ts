@@ -4,10 +4,13 @@ import { useDispatch } from "react-redux";
 import { TypedUseSelectorHook } from "react-redux";
 import configurationReducer from "./configuration/configuration.slice";
 import genresReducer from "./genres/genres.slice";
+import upcomingReducer from "./upcoming/upcoming.slice";
+
 export const store = configureStore({
 	reducer: {
 		configuration: configurationReducer,
-		genres: genresReducer
+		genres: genresReducer,
+		upcoming: upcomingReducer,
 	},
 });
 
