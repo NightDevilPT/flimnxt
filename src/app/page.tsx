@@ -1,10 +1,11 @@
 import React from 'react';
+import HomeBanner from '@/components/ui/home-banner';
 
 const Page = () => {
 
   return (
-    <div>
-      <h1>body</h1>
+    <div className="w-full h-auto">
+      <HomeBanner />
     </div>
   );
 };

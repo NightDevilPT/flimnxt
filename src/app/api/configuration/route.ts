@@ -5,7 +5,7 @@ import {
 	LanguagesApiResponse,
 	ConfigurationApiResponse,
 	Language,
-	ImageConfiguration,
+	ImagesConfig,
 } from "@/redux/configuration/configuration.interface";
 import { configurationData } from "@/redux/configuration/configuration.data";
 
@@ -23,7 +23,7 @@ export async function GET() {
 					undefined,
 					env.apiToken
 				),
-				apiService.get<ImageConfiguration>(
+				apiService.get<ImagesConfig>(
 					`${env.apiUrl}/configuration`,
 					undefined,
 					env.apiToken
@@ -41,7 +41,7 @@ export async function GET() {
 
 			const combinedResponse: ConfigurationApiResponse = {
 				languages: transformedLanguages,
-				images: imageResponse.images,
+				images: imageResponse,
 			};
 
 			return NextResponse.json(combinedResponse);

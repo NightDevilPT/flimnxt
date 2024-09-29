@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ImageConfiguration, Language } from '@/redux/configuration/configuration.interface';
 import { fetchConfiguration } from './configuration.thunk';
+import { ImagesConfig, Language } from '@/redux/configuration/configuration.interface';
 
 interface ConfigurationState {
   languages: Record<string, Language>;
-  images: ImageConfiguration | null;
+  images: ImagesConfig | null;
   loading: boolean;
   error: string | null;
 }

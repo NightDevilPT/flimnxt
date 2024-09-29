@@ -24,8 +24,8 @@ const IconComponent: React.FC<IconProps> = ({ name, size = 24, className }) => {
     [Icons.CATEGORYFILL]: <BiSolidCategoryAlt size={size} className={className} />,
     [Icons.MOVIEFILL]: <TbMovie size={size} className={className} />,
     [Icons.TVFILL]: <BsFillTvFill size={size} className={className} />,
-    [Icons.ARROWLEFT]: <IoIosArrowForward size={size} className={className} />,
-    [Icons.ARROWRIGHT]: <IoIosArrowBack size={size} className={className} />,
+    [Icons.ARROWLEFT]: <IoIosArrowBack size={size} className={className} />,
+    [Icons.ARROWRIGHT]: <IoIosArrowForward size={size} className={className} />,
     [Icons.LOGO]: <BiSolidMoviePlay size={size} className={className} />,
   };
 
